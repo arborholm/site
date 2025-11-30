@@ -68,10 +68,11 @@
             pointer-events: none;
         }
 
+        /* Slower, a bit more movement */
         .fade-in-up {
-            animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeInUp 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(26px);
         }
 
         .delay-100 { animation-delay: 0.1s; }
@@ -90,7 +91,7 @@
             transform: translateY(-3px);
         }
 
-        /* NEW: mirror hero image horizontally + slight scale */
+        /* Mirrored hero image */
         .hero-image {
             transform: scaleX(-1) scale(1.05);
             transition: transform 0.8s ease;
@@ -126,7 +127,8 @@
     </nav>
 
     <!-- Hero -->
-    <section class="pt-32 pb-16 md:pt-40 md:pb-28 px-6 max-w-[1400px] mx-auto relative overflow-hidden">
+    <!-- extra bottom padding on mobile to make room for card shifted downward -->
+    <section class="pt-32 pb-24 md:pt-40 md:pb-28 px-6 max-w-[1400px] mx-auto relative overflow-hidden">
         <div class="hero-glow"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -163,20 +165,17 @@
                 </div>
 
                 <!-- Overlay card -->
-                <div class="absolute bottom-8 left-6 right-6 md:left-10 md:right-auto md:w-80 bg-[#FBF9F7] border border-arbor-stone/70 shadow-warm-xl rounded-[6px] p-6 md:p-7 z-20">
+                <!-- On mobile: push further down (negative bottom) so it sits lower and doesn't cover cabinet.
+                     On md+: revert to original overlay position. -->
+                <div class="absolute bottom-[-4.5rem] left-4 right-4 md:bottom-8 md:left-10 md:right-auto md:w-80 bg-[#FBF9F7] border border-arbor-stone/70 shadow-warm-xl rounded-[6px] p-6 md:p-7 z-20">
                     <div class="flex items-center justify-between mb-5 pb-4 border-b border-arbor-stone/70">
-                        <div>
-                            <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-arbor-grey-light mb-1">
-                                System 01
-                            </p>
-                            <p class="text-xs text-arbor-grey-medium tracking-[0.14em] uppercase">
-                                Holm Collection
-                            </p>
-                        </div>
+                        <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-arbor-grey-medium">
+                            Holm Collection
+                        </p>
                         <div class="flex items-center gap-2">
-                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-arbor-gold"></div>
                             <span class="text-[10px] font-semibold uppercase tracking-[0.22em] text-arbor-charcoal">
-                                Active
+                                Coming Soon
                             </span>
                         </div>
                     </div>
@@ -195,7 +194,6 @@
     </section>
 
     <!-- Manifesto / Pillars -->
-    <!-- PADDING REDUCED HERE: was py-24, now py-16 md:py-20 -->
     <section class="bg-white py-16 md:py-20 border-t border-arbor-stone relative z-10">
         <div class="max-w-[1400px] mx-auto px-6">
             <!-- Section label -->
