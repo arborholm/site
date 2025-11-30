@@ -21,13 +21,13 @@
                         sans: ['Manrope', 'sans-serif'],
                     },
                     colors: {
-                        'arbor-white': '#F5F1EB',   /* Warm Linen / Alabaster */
-                        'arbor-charcoal': '#3A352F', /* Warm Walnut-Shadow */
-                        'arbor-stone': '#E3DDD6',    /* Warm Stone/Beige */
-                        'arbor-gold': '#D4943C',     /* Rich Amber-Brass Accent (Warmed up with punchier orange tint) */
+                        'arbor-white': '#F5F1EB',     /* Warm Linen / Alabaster */
+                        'arbor-charcoal': '#3A352F',  /* Warm Walnut-Shadow */
+                        'arbor-stone': '#E3DDD6',     /* Warm Stone/Beige */
+                        'arbor-gold': '#D4943C',      /* Rich Amber-Brass Accent */
                         'arbor-grey-dark': '#6A6058', /* Warm Grey Dark */
                         'arbor-grey-medium': '#8A8078', /* Warm Grey Medium */
-                        'arbor-grey-light': '#AFA79F', /* Warm Grey Light */
+                        'arbor-grey-light': '#AFA79F',  /* Warm Grey Light */
                     },
                     spacing: {
                         '128': '32rem',
@@ -35,7 +35,7 @@
                     boxShadow: {
                         'warm-xl': '0 20px 25px -5px rgba(60, 47, 33, 0.15), 0 10px 10px -5px rgba(60, 47, 33, 0.1)',
                         'warm-2xl': '0 25px 50px -12px rgba(60, 47, 33, 0.35)',
-                        'inset-vignette': 'inset 0 0 80px rgba(58, 53, 47, 0.5)', /* Subtle warm vignette for image blending */
+                        'inset-vignette': 'inset 0 0 80px rgba(58, 53, 47, 0.55)',
                     }
                 }
             }
@@ -43,14 +43,12 @@
     </script>
 
     <style>
-        /* Custom Styles for nuances not covered by Tailwind */
         body {
             background-color: #F5F1EB;
             color: #3A352F;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* The Gold Accent Line - Updated to warmer amber-brass */
         .gold-line {
             height: 1px;
             background: linear-gradient(90deg, #D4943C 0%, transparent 100%);
@@ -58,22 +56,20 @@
             display: block;
         }
 
-        /* Ambient Daylight Glow for Hero */
         .hero-glow {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 40%;
+            left: 35%;
             transform: translate(-50%, -50%);
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle, rgba(255, 252, 245, 0.6) 0%, rgba(255, 252, 245, 0) 70%);
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, rgba(255, 252, 245, 0.45) 0%, rgba(255, 252, 245, 0) 65%);
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Subtle Fade In Animation */
         .fade-in-up {
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
             transform: translateY(20px);
         }
@@ -85,152 +81,196 @@
         @keyframes fadeInUp {
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .grid-item {
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-3px);
+        }
     </style>
 </head>
-<body class="selection:bg-arbor-gold selection:text-white">
+<body class="selection:bg-arbor-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- Navigation (Warmer background: #F7F3ED) -->
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-[#F7F3ED]/95 backdrop-blur-md border-b border-arbor-stone">
         <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
             
-            <!-- LOGO: Updated with Shelter/Roof Icon in new warm brass color -->
-            <div class="flex items-center gap-2"> <!-- Decreased gap from gap-3 to gap-2 -->
-                <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Concept: Minimalist Shelter/Roof (Holm) -->
-                    <path d="M20 8L35 24H28L20 15L12 24H5L20 8Z" fill="#D4943C"/> <!-- Updated fill color -->
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L38 24H30L20 14L10 24H2L20 6Z" fill="#D4943C"/>
                 </svg>
-                <span class="text-xl font-semibold tracking-wide text-arbor-charcoal">ARBORHOLM</span>
+                <span class="text-lg md:text-xl font-semibold tracking-[0.18em] text-arbor-charcoal">ARBORHOLM</span>
             </div>
 
-            <!-- Minimal Nav (Warm Grey Text) -->
-            <div class="hidden md:flex gap-10 text-sm font-medium tracking-wide uppercase text-arbor-grey-dark">
+            <!-- Nav Links -->
+            <div class="hidden md:flex gap-10 text-[11px] font-semibold tracking-[0.22em] uppercase text-arbor-grey-dark">
                 <a href="#" class="hover:text-arbor-gold transition-colors">Collection</a>
                 <a href="#" class="hover:text-arbor-gold transition-colors">Philosophy</a>
                 <a href="#" class="hover:text-arbor-gold transition-colors">Studio</a>
             </div>
 
             <!-- CTA -->
-            <a href="#" class="hidden md:block text-sm font-semibold text-arbor-charcoal border-b border-arbor-charcoal pb-0.5 hover:border-arbor-gold hover:text-arbor-gold transition-all">
+            <a href="#" class="hidden md:block text-[11px] font-semibold uppercase tracking-[0.22em] text-arbor-charcoal border-b border-arbor-charcoal pb-0.5 hover:border-arbor-gold hover:text-arbor-gold transition-all">
                 Waitlist
             </a>
         </div>
     </nav>
 
-    <!-- Hero Section (Increased Spacing: pt-40) -->
-    <!-- Added overflow-visible for mobile card overlap safety -->
-    <section class="pt-32 pb-12 md:pt-56 md:pb-40 px-6 max-w-[1400px] mx-auto relative lg:overflow-visible">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center">
+    <!-- Hero -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-28 px-6 max-w-[1400px] mx-auto relative overflow-hidden">
+        <div class="hero-glow"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <!-- Hero Text (Span 5 for tighter, cleaner text block) -->
-            <div class="lg:col-span-5 fade-in-up relative z-10 lg:pr-4 order-1">
-                <!-- Warm Glow Effect -->
-                <div class="hero-glow"></div>
+            <!-- Text -->
+            <div class="lg:col-span-5 fade-in-up relative z-10">
+                <p class="text-arbor-gold font-semibold uppercase tracking-[0.3em] text-[10px] mb-6">
+                    Precision Engineering × Natural Craft
+                </p>
                 
-                <p class="text-arbor-gold font-medium uppercase tracking-widest text-xs mb-8">Precision Engineering × Natural Craft</p>
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-arbor-charcoal leading-[1.1] mb-10">
+                <h1 class="text-[2.5rem] md:text-[3rem] lg:text-[3.4rem] font-light text-arbor-charcoal leading-[1.05] mb-7 tracking-tight">
                     Timeless craft.<br>
                     <span class="font-medium italic font-serif">Invisible</span><br>
                     technology.
                 </h1>
-                <div class="gold-line max-w-xs mb-10"></div>
-                <p class="text-lg text-arbor-grey-dark leading-loose">
-                    We engineer sanctuaries. Smart furniture that merges Scandinavian joinery with seamless connectivity.
+                
+                <div class="gold-line max-w-[120px] mb-7"></div>
+                
+                <p class="text-[15px] md:text-base text-arbor-grey-dark leading-relaxed font-medium max-w-md">
+                    Smart furniture, built as sanctuaries. Scandinavian joinery, integrated with quiet, seamless connectivity.
                 </p>
             </div>
 
-            <!-- Hero Image Visual (Span 7 for larger impact) -->
-            <!-- Adjusted margin to pull image left on desktop -->
-            <div class="lg:col-span-7 relative h-[500px] md:h-[650px] w-full fade-in-up delay-200 z-0 lg:-ml-32 order-2 mb-24 lg:mb-0">
-                <!-- Main Image Block: Product Image Inset with Vignette -->
-                <div class="absolute inset-0 bg-arbor-charcoal shadow-warm-2xl overflow-hidden relative rounded-sm">
-                    <!-- Replaced abstract texture with product image -->
-                    <!-- Added -scale-x-100 to mirror the image horizontally -->
-                    <img src="/images/hero-image.webp" 
-                         alt="Arborholm Collection" 
-                         class="w-full h-full object-cover object-center scale-110 -scale-x-100 transform transition-transform duration-1000">
-                    <!-- Subtle inset vignette for blending -->
+            <!-- Image / Product -->
+            <div class="lg:col-span-7 relative h-[460px] md:h-[620px] fade-in-up delay-200">
+                <!-- Main product image -->
+                <div class="absolute inset-0 bg-arbor-charcoal shadow-warm-2xl overflow-hidden rounded-[6px]">
+                    <img
+                        src="/images/hero-image.webp"
+                        alt="Arborholm collection – console with integrated lighting"
+                        class="w-full h-full object-cover object-center scale-[1.05] transform"
+                    />
                     <div class="absolute inset-0 shadow-inset-vignette pointer-events-none"></div>
                 </div>
-                
-                <!-- Overlay Card for Depth & Storytelling -->
-                <!-- Mobile: Overlaps bottom edge significantly (-bottom-16) with margin support -->
-                <!-- Desktop: Moves UP (bottom-12) to sit inside the image for overlap, pulled left -->
-                <div class="absolute -bottom-16 left-6 right-6 lg:bottom-12 lg:-left-24 lg:right-auto w-auto lg:w-2/3 bg-[#FBF9F7] border border-arbor-stone p-6 md:p-8 flex flex-col justify-between shadow-warm-xl rounded-sm backdrop-blur-sm bg-opacity-95 z-20">
-                    <div class="flex justify-between items-start mb-4 md:mb-6">
-                        <span class="text-xs uppercase tracking-widest text-arbor-grey-light">The Collection</span>
+
+                <!-- Overlay card: anchored, tighter, more intentional -->
+                <div class="absolute bottom-8 left-6 right-6 md:left-10 md:right-auto md:w-80 bg-[#FBF9F7] border border-arbor-stone/70 shadow-warm-xl rounded-[6px] p-6 md:p-7 z-20">
+                    <div class="flex items-center justify-between mb-5 pb-4 border-b border-arbor-stone/70">
+                        <div>
+                            <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-arbor-grey-light mb-1">
+                                System 01
+                            </p>
+                            <p class="text-xs text-arbor-grey-medium tracking-[0.14em] uppercase">
+                                Holm Collection
+                            </p>
+                        </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-xs uppercase tracking-widest text-arbor-gold">System 01</span>
-                            <div class="w-2 h-2 rounded-full bg-arbor-gold animate-pulse"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                            <span class="text-[10px] font-semibold uppercase tracking-[0.22em] text-arbor-charcoal">
+                                Active
+                            </span>
                         </div>
                     </div>
+
                     <div>
-                        <div class="text-xl md:text-2xl font-light text-arbor-charcoal mb-2">The Holm Console</div>
-                        <div class="text-sm text-arbor-grey-medium leading-relaxed">
-                            Solid American Walnut. Responsive ambient integration. A sanctuary for your rituals, engineered for modern life.
-                        </div>
+                        <h3 class="text-lg md:text-xl font-medium text-arbor-charcoal mb-1 tracking-tight">
+                            The Holm Console
+                        </h3>
+                        <p class="text-[12px] text-arbor-grey-medium leading-relaxed font-medium">
+                            Solid American Walnut. Motion-responsive ambient light. A console that turns everyday rituals into deliberate moments.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Manifesto / Details Grid (Increased Spacing: py-32) -->
-    <section class="bg-white py-24 md:py-32 border-t border-arbor-stone relative z-10">
+    <!-- Manifesto / Pillars -->
+    <section class="bg-white py-24 border-t border-arbor-stone relative z-10">
         <div class="max-w-[1400px] mx-auto px-6">
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-                <!-- Column 1 -->
-                <div class="fade-in-up delay-100">
-                    <div class="w-8 h-8 mb-8 border border-arbor-charcoal flex items-center justify-center">
-                        <span class="text-xs font-bold text-arbor-charcoal">01</span>
+            <!-- Section label -->
+            <div class="mb-12 md:mb-16 max-w-xl">
+                <p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-arbor-grey-light mb-4">
+                    Design Pillars
+                </p>
+                <h2 class="text-xl md:text-2xl font-medium text-arbor-charcoal tracking-tight">
+                    Precision living, defined in three dimensions.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-14">
+                <!-- Item 1 -->
+                <div class="fade-in-up delay-100 grid-item p-6 rounded-[6px] border border-transparent hover:border-arbor-stone/80 bg-white/60">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="text-2xl font-light text-arbor-gold font-serif italic">01</span>
+                        <div class="h-px bg-arbor-stone flex-1"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-arbor-charcoal">Architectural Clarity</h3>
-                    <p class="text-base text-arbor-grey-dark leading-loose">
-                        No ornamentation. Every line serves a structural purpose. Inspired by the honest construction of Nordic timber framing.
+                    <h3 class="text-base md:text-lg font-semibold mb-3 text-arbor-charcoal tracking-tight">
+                        Architectural Clarity
+                    </h3>
+                    <p class="text-sm text-arbor-grey-dark leading-loose font-medium">
+                        No decorative excess. Each plane, joint, and line follows a clear structural logic, influenced by Nordic timber framing.
                     </p>
                 </div>
 
-                <!-- Column 2 -->
-                <div class="fade-in-up delay-200">
-                    <div class="w-8 h-8 mb-8 border border-arbor-charcoal flex items-center justify-center">
-                        <span class="text-xs font-bold text-arbor-gold">02</span>
+                <!-- Item 2 -->
+                <div class="fade-in-up delay-200 grid-item p-6 rounded-[6px] border border-transparent hover:border-arbor-stone/80 bg-white/60">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="text-2xl font-light text-arbor-gold font-serif italic">02</span>
+                        <div class="h-px bg-arbor-stone flex-1"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-arbor-charcoal">Invisible Intelligence</h3>
-                    <p class="text-base text-arbor-grey-dark leading-loose">
-                        Sensors, charging, and connectivity are embedded deep within the solid wood core. Technology that is felt, not seen.
+                    <h3 class="text-base md:text-lg font-semibold mb-3 text-arbor-charcoal tracking-tight">
+                        Invisible Intelligence
+                    </h3>
+                    <p class="text-sm text-arbor-grey-dark leading-loose font-medium">
+                        Sensors, charging and control live inside the wood core – revealed only through interaction, never visual noise.
                     </p>
                 </div>
 
-                <!-- Column 3 -->
-                <div class="fade-in-up delay-300">
-                    <div class="w-8 h-8 mb-8 border border-arbor-charcoal flex items-center justify-center">
-                        <span class="text-xs font-bold text-arbor-charcoal">03</span>
+                <!-- Item 3 -->
+                <div class="fade-in-up delay-300 grid-item p-6 rounded-[6px] border border-transparent hover:border-arbor-stone/80 bg-white/60">
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="text-2xl font-light text-arbor-gold font-serif italic">03</span>
+                        <div class="h-px bg-arbor-stone flex-1"></div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-arbor-charcoal">Heirloom Materials</h3>
-                    <p class="text-base text-arbor-grey-dark leading-loose">
-                        Solid American Walnut and White Ash. Brushed brass hardware. Finishes that age gracefully over decades, not years.
+                    <h3 class="text-base md:text-lg font-semibold mb-3 text-arbor-charcoal tracking-tight">
+                        Heirloom Materials
+                    </h3>
+                    <p class="text-sm text-arbor-grey-dark leading-loose font-medium">
+                        Solid American Walnut, White Ash, and brushed brass. Finishes tuned to patinate, not peel – built to live with you for decades.
                     </p>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-arbor-charcoal text-arbor-white py-24 relative z-10">
-        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
+    <footer class="bg-arbor-charcoal text-arbor-white py-20 mt-auto">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
             <div>
-                <h2 class="text-4xl font-light mb-6 tracking-tight text-[#E3DDD6]">ARBORHOLM</h2>
-                <p class="text-arbor-grey-medium text-sm max-w-xs leading-relaxed">
+                <h2 class="text-3xl font-light mb-4 tracking-tight text-[#E3DDD6]">ARBORHOLM</h2>
+                <p class="text-arbor-grey-medium text-xs max-w-xs leading-relaxed font-medium">
                     Designed in Bengaluru.<br>
                     Engineered for the world.
                 </p>
             </div>
             
             <div class="md:text-right">
-                <form class="inline-block relative">
-                    <input type="email" placeholder="Email for access" class="bg-transparent border-b border-arbor-grey-dark py-3 pr-12 focus:outline-none focus:border-arbor-gold transition-colors w-72 text-sm placeholder-arbor-grey-dark text-arbor-white">
-                    <button type="submit" class="absolute right-0 top-3 text-xs uppercase tracking-widest text-arbor-gold hover:text-white transition-colors">Join</button>
+                <form class="inline-block relative group">
+                    <input
+                        type="email"
+                        placeholder="Email for access"
+                        class="bg-transparent border-b border-arbor-grey-dark py-3 pr-12 focus:outline-none focus:border-arbor-gold transition-colors w-72 text-sm placeholder-arbor-grey-dark text-arbor-white font-medium"
+                    >
+                    <button
+                        type="submit"
+                        class="absolute right-0 top-3 text-[10px] font-semibold uppercase tracking-[0.26em] text-arbor-gold group-hover:text-white transition-colors"
+                    >
+                        Join
+                    </button>
                 </form>
             </div>
         </div>
