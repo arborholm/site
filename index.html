@@ -106,22 +106,28 @@
             
             <!-- Logo -->
 <div class="flex items-center gap-3">
-    <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 6L38 24H30L20 14L10 24H2L20 6Z" fill="#D4943C"/>
+    <!-- Icon -->
+    <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Roof: Thicker, bolder, masculine. No U-shape. -->
+        <path d="M3 14L20 5L37 14" 
+              stroke="#D4943C" 
+              stroke-width="5" 
+              stroke-linecap="square" 
+              stroke-linejoin="miter"/>
     </svg>
 
     <div class="flex flex-col leading-tight">
-        <!-- Brand Name -->
-        <span class="text-lg md:text-xl font-semibold tracking-[0.18em] text-arbor-charcoal">
+        <!-- Wordmark -->
+        <span class="text-xl md:text-2xl font-semibold tracking-[0.18em] text-arbor-charcoal">
             ARBORHOLM
         </span>
 
-        <!-- Pronunciation -->
-        <span class="font-serif italic text-[11px] text-arbor-grey-medium/70 leading-tight">
-    / ar-bor-home / 
-    <span class="text-[10px] opacity-60 mx-1 not-italic font-sans">or</span> 
-    / ah-buh-home /
-</span>
+        <!-- Pronunciation (now Manrope, easy to read, right-aligned) -->
+        <span class="text-[12px] font-medium text-arbor-grey-medium/85 tracking-tight mt-[3px] text-right">
+            / ar-bor-home /
+            <span class="mx-1 text-[11px] opacity-70">or</span>
+            / ah-buh-home /
+        </span>
     </div>
 </div>
 
