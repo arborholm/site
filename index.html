@@ -24,7 +24,7 @@
                         'arbor-white': '#F5F1EB',   /* Warm Linen / Alabaster */
                         'arbor-charcoal': '#3A352F', /* Warm Walnut-Shadow */
                         'arbor-stone': '#E3DDD6',    /* Warm Stone/Beige */
-                        'arbor-gold': '#CA8E29',     /* Rich Amber-Brass Accent (Warmed up with orange tint) */
+                        'arbor-gold': '#D4943C',     /* Rich Amber-Brass Accent (Warmed up with punchier orange tint) */
                         'arbor-grey-dark': '#6A6058', /* Warm Grey Dark */
                         'arbor-grey-medium': '#8A8078', /* Warm Grey Medium */
                         'arbor-grey-light': '#AFA79F', /* Warm Grey Light */
@@ -53,7 +53,7 @@
         /* The Gold Accent Line - Updated to warmer amber-brass */
         .gold-line {
             height: 1px;
-            background: linear-gradient(90deg, #CA8E29 0%, transparent 100%);
+            background: linear-gradient(90deg, #D4943C 0%, transparent 100%);
             width: 100%;
             display: block;
         }
@@ -94,10 +94,10 @@
         <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
             
             <!-- LOGO: Updated with Shelter/Roof Icon in new warm brass color -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2"> <!-- Decreased gap from gap-3 to gap-2 -->
                 <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Concept: Minimalist Shelter/Roof (Holm) -->
-                    <path d="M20 8L35 24H28L20 15L12 24H5L20 8Z" fill="#CA8E29"/>
+                    <path d="M20 8L35 24H28L20 15L12 24H5L20 8Z" fill="#D4943C"/> <!-- Updated fill color -->
                 </svg>
                 <span class="text-xl font-semibold tracking-wide text-arbor-charcoal">ARBORHOLM</span>
             </div>
@@ -117,41 +117,41 @@
     </nav>
 
     <!-- Hero Section (Increased Spacing: pt-40) -->
-    <section class="pt-40 pb-24 md:pt-56 md:pb-40 px-6 max-w-[1400px] mx-auto relative">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end">
+    <section class="pt-40 pb-24 md:pt-56 md:pb-40 px-6 max-w-[1400px] mx-auto relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
-            <!-- Hero Text -->
-            <div class="lg:col-span-6 fade-in-up relative z-10">
+            <!-- Hero Text (Span 5 for tighter, cleaner text block) -->
+            <div class="lg:col-span-5 fade-in-up relative z-10 lg:pr-8">
                 <!-- Warm Glow Effect -->
                 <div class="hero-glow"></div>
                 
                 <p class="text-arbor-gold font-medium uppercase tracking-widest text-xs mb-8">Precision Engineering × Natural Craft</p>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-light text-arbor-charcoal leading-[1.1] mb-10">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-arbor-charcoal leading-[1.1] mb-10">
                     Timeless craft.<br>
                     <span class="font-medium italic font-serif">Invisible</span><br>
                     technology.
                 </h1>
                 <div class="gold-line max-w-xs mb-10"></div>
-                <p class="text-lg text-arbor-grey-dark max-w-lg leading-loose">
+                <p class="text-lg text-arbor-grey-dark leading-loose">
                     We engineer sanctuaries. Smart furniture that merges Scandinavian joinery with seamless connectivity.
                 </p>
             </div>
 
-            <!-- Hero Image Visual (Product Showcase) -->
-            <!-- Increased size and reintroduced the overlay card for depth -->
-            <div class="lg:col-span-6 relative h-[700px] w-full fade-in-up delay-200 z-0 lg:-ml-12">
+            <!-- Hero Image Visual (Span 7 for larger impact) -->
+            <div class="lg:col-span-7 relative h-[650px] w-full fade-in-up delay-200 z-0">
                 <!-- Main Image Block: Product Image Inset with Vignette -->
                 <div class="absolute inset-0 bg-arbor-charcoal shadow-warm-2xl overflow-hidden relative rounded-sm">
-                    <!-- Use locally hosted hero image -->
-                    <img src="/images/hero-image.webp"
-                         alt="Arborholm Collection"
-                         class="w-full h-full object-cover">
+                    <!-- Replaced abstract texture with product image -->
+                    <!-- Added scale-110 to zoom in, and object-bottom to focus on the furniture placement -->
+                    <img src="/images/hero-image.webp" 
+                         alt="Arborholm Collection" 
+                         class="w-full h-full object-cover object-center scale-110 transform transition-transform duration-1000">
                     <!-- Subtle inset vignette for blending -->
                     <div class="absolute inset-0 shadow-inset-vignette pointer-events-none"></div>
                 </div>
                 
-                <!-- Reintroduced Overlay Card for Depth & Storytelling -->
-                <div class="absolute -bottom-12 -left-12 w-3/4 md:w-2/3 bg-[#FBF9F7] border border-arbor-stone p-8 flex flex-col justify-between shadow-warm-xl rounded-sm">
+                <!-- Overlay Card for Depth & Storytelling -->
+                <div class="absolute bottom-8 left-8 md:-left-12 w-3/4 md:w-1/2 bg-[#FBF9F7] border border-arbor-stone p-8 flex flex-col justify-between shadow-warm-xl rounded-sm backdrop-blur-sm bg-opacity-95">
                     <div class="flex justify-between items-start mb-6">
                         <span class="text-xs uppercase tracking-widest text-arbor-grey-light">The Collection</span>
                         <div class="flex items-center gap-2">
