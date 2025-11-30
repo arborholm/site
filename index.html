@@ -89,6 +89,12 @@
         .grid-item:hover {
             transform: translateY(-3px);
         }
+
+        /* NEW: mirror hero image horizontally + slight scale */
+        .hero-image {
+            transform: scaleX(-1) scale(1.05);
+            transition: transform 0.8s ease;
+        }
     </style>
 </head>
 <body class="selection:bg-arbor-gold selection:text-white flex flex-col min-h-screen">
@@ -151,12 +157,12 @@
                     <img
                         src="/images/hero-image.webp"
                         alt="Arborholm collection – console with integrated lighting"
-                        class="w-full h-full object-cover object-center scale-[1.05] transform"
+                        class="hero-image w-full h-full object-cover object-center"
                     />
                     <div class="absolute inset-0 shadow-inset-vignette pointer-events-none"></div>
                 </div>
 
-                <!-- Overlay card: anchored, tighter, more intentional -->
+                <!-- Overlay card -->
                 <div class="absolute bottom-8 left-6 right-6 md:left-10 md:right-auto md:w-80 bg-[#FBF9F7] border border-arbor-stone/70 shadow-warm-xl rounded-[6px] p-6 md:p-7 z-20">
                     <div class="flex items-center justify-between mb-5 pb-4 border-b border-arbor-stone/70">
                         <div>
@@ -189,7 +195,8 @@
     </section>
 
     <!-- Manifesto / Pillars -->
-    <section class="bg-white py-24 border-t border-arbor-stone relative z-10">
+    <!-- PADDING REDUCED HERE: was py-24, now py-16 md:py-20 -->
+    <section class="bg-white py-16 md:py-20 border-t border-arbor-stone relative z-10">
         <div class="max-w-[1400px] mx-auto px-6">
             <!-- Section label -->
             <div class="mb-12 md:mb-16 max-w-xl">
