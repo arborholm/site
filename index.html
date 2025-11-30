@@ -3,338 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arborholm | Intelligence, Rooted.</title>
-    <meta name="description" content="Arborholm blends heritage craftsmanship with invisible technology to create modern sanctuaries for your home and office. Coming Soon.">
+    <title>Arborholm | Precision Living</title>
     
-    <!-- Fonts: Playfair Display (Heritage/Serif) and Lato (Clean/Sans) -->
+    <!-- Typography: Manrope (Geometric/Humanist Sans for Engineered feel) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                    },
+                    colors: {
+                        'arbor-white': '#F5F1EB',   /* Warm Linen / Alabaster */
+                        'arbor-charcoal': '#3A352F', /* Warm Walnut-Shadow */
+                        'arbor-stone': '#E3DDD6',    /* Warm Stone/Beige */
+                        'arbor-gold': '#CA8E29',     /* Rich Amber-Brass Accent (Warmed up with orange tint) */
+                        'arbor-grey-dark': '#6A6058', /* Warm Grey Dark */
+                        'arbor-grey-medium': '#8A8078', /* Warm Grey Medium */
+                        'arbor-grey-light': '#AFA79F', /* Warm Grey Light */
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    boxShadow: {
+                        'warm-xl': '0 20px 25px -5px rgba(60, 47, 33, 0.15), 0 10px 10px -5px rgba(60, 47, 33, 0.1)',
+                        'warm-2xl': '0 25px 50px -12px rgba(60, 47, 33, 0.35)',
+                        'inset-vignette': 'inset 0 0 80px rgba(58, 53, 47, 0.5)', /* Subtle warm vignette for image blending */
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        :root {
-            /* The Arborholm Heritage Palette */
-            --color-base: #F8F6F7;       /* Alabaster */
-            --color-text: #5E4028;       /* Dark Espresso */
-            --color-accent: #CA8E29;     /* Brushed Brass */
-            --color-nature: #5A6049;     /* Moss Green */
-            --color-wood: #967F6C;       /* Driftwood */
-            
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Lato', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Custom Styles for nuances not covered by Tailwind */
         body {
-            background-color: var(--color-base);
-            color: var(--color-text);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            background-color: #F5F1EB;
+            color: #3A352F;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Layout & Structure --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        /* The Gold Accent Line - Updated to warmer amber-brass */
+        .gold-line {
+            height: 1px;
+            background: linear-gradient(90deg, #CA8E29 0%, transparent 100%);
             width: 100%;
+            display: block;
         }
 
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 4rem 0;
-        }
-
-        /* --- Typography --- */
-        h1 {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-family: var(--font-sans);
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.9rem;
-            color: var(--color-nature);
-            margin-bottom: 2rem;
-        }
-
-        p {
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            color: var(--color-text);
-            opacity: 0.9;
-            font-weight: 300;
-        }
-
-        /* --- Logo Section --- */
-        .logo-container {
-            margin-bottom: 3rem;
-            animation: fadeInDown 1.2s ease-out;
-        }
-        
-        .logo-svg {
-            height: 70px; /* Adjusted size for impact */
-            width: auto;
-        }
-
-        /* --- Email Capture Form --- */
-        .signup-form {
-            width: 100%;
-            max-width: 450px;
-            position: relative;
-            margin-bottom: 1rem;
-        }
-
-        .input-group {
-            display: flex;
-            border-bottom: 2px solid var(--color-text);
-            padding-bottom: 0.5rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .input-group:focus-within {
-            border-bottom-color: var(--color-accent);
-        }
-
-        input[type="email"] {
-            flex: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            color: var(--color-text);
-            padding: 0.5rem 0;
-        }
-
-        input[type="email"]::placeholder {
-            color: var(--color-text);
-            opacity: 0.5;
-            font-style: italic;
-        }
-
-        button {
-            background: none;
-            border: none;
-            font-family: var(--font-sans);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text);
-            cursor: pointer;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-            padding-left: 1rem;
-        }
-
-        button:hover {
-            color: var(--color-accent);
-        }
-        
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .form-message {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            min-height: 1.5em;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        
-        .form-message.visible {
-            opacity: 1;
-        }
-
-        /* --- Visual Elements --- */
-        .grain-texture {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            opacity: 0.03;
+        /* Ambient Daylight Glow for Hero */
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(255, 252, 245, 0.6) 0%, rgba(255, 252, 245, 0) 70%);
             z-index: -1;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            pointer-events: none;
         }
 
-        .line-accent {
-            width: 60px;
-            height: 2px;
-            background-color: var(--color-accent);
-            margin: 0 auto 2rem;
+        /* Subtle Fade In Animation */
+        .fade-in-up {
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        footer {
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--color-wood);
-            font-family: var(--font-sans);
-        }
-
-        /* --- Animations --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-up {
-            animation: fadeInUp 1.2s ease-out forwards;
-            opacity: 0;
-        }
-        
-        .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.6s; }
-        .delay-3 { animation-delay: 0.9s; }
-
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .logo-svg { height: 50px; }
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-arbor-gold selection:text-white">
 
-    <div class="grain-texture"></div>
+    <!-- Navigation (Warmer background: #F7F3ED) -->
+    <nav class="fixed w-full z-50 bg-[#F7F3ED]/95 backdrop-blur-md border-b border-arbor-stone">
+        <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- LOGO: Updated with Shelter/Roof Icon in new warm brass color -->
+            <div class="flex items-center gap-3">
+                <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Concept: Minimalist Shelter/Roof (Holm) -->
+                    <path d="M20 8L35 24H28L20 15L12 24H5L20 8Z" fill="#CA8E29"/>
+                </svg>
+                <span class="text-xl font-semibold tracking-wide text-arbor-charcoal">ARBORHOLM</span>
+            </div>
 
-    <main class="container">
-        
-        <!-- Logo Section -->
-        <div class="logo-container">
-            <!-- Inline SVG: Optimized for the "Character" Version (Serif + Brass Roof) -->
-            <svg class="logo-svg" viewBox="0 0 450 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Icon: The Brass Roof (Simple Geometric Shelter) -->
-                <path d="M55 20 L95 60 L80 60 L55 35 L30 60 L15 60 L55 20Z" fill="#CA8E29"/>
+            <!-- Minimal Nav (Warm Grey Text) -->
+            <div class="hidden md:flex gap-10 text-sm font-medium tracking-wide uppercase text-arbor-grey-dark">
+                <a href="#" class="hover:text-arbor-gold transition-colors">Collection</a>
+                <a href="#" class="hover:text-arbor-gold transition-colors">Philosophy</a>
+                <a href="#" class="hover:text-arbor-gold transition-colors">Studio</a>
+            </div>
+
+            <!-- CTA -->
+            <a href="#" class="hidden md:block text-sm font-semibold text-arbor-charcoal border-b border-arbor-charcoal pb-0.5 hover:border-arbor-gold hover:text-arbor-gold transition-all">
+                Waitlist
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Increased Spacing: pt-40) -->
+    <section class="pt-40 pb-24 md:pt-56 md:pb-40 px-6 max-w-[1400px] mx-auto relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-end">
+            
+            <!-- Hero Text -->
+            <div class="lg:col-span-6 fade-in-up relative z-10">
+                <!-- Warm Glow Effect -->
+                <div class="hero-glow"></div>
                 
-                <!-- Text: ARBORHOLM using Playfair Display (Serif) -->
-                <text x="120" y="60" font-family="'Playfair Display', serif" font-weight="500" font-size="48" letter-spacing="0.08em" fill="#5E4028">ARBORHOLM</text>
-            </svg>
-        </div>
+                <p class="text-arbor-gold font-medium uppercase tracking-widest text-xs mb-8">Precision Engineering × Natural Craft</p>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-light text-arbor-charcoal leading-[1.1] mb-10">
+                    Timeless craft.<br>
+                    <span class="font-medium italic font-serif">Invisible</span><br>
+                    technology.
+                </h1>
+                <div class="gold-line max-w-xs mb-10"></div>
+                <p class="text-lg text-arbor-grey-dark max-w-lg leading-loose">
+                    We engineer sanctuaries. Smart furniture that merges Scandinavian joinery with seamless connectivity.
+                </p>
+            </div>
 
-        <div class="line-accent animate-up delay-1"></div>
-
-        <h2 class="animate-up delay-1">Intelligence, Rooted.</h2>
-
-        <h1 class="animate-up delay-2">
-            A sanctuary for your<br>modern life.
-        </h1>
-
-        <p class="animate-up delay-2">
-            We are crafting a new collection of intelligent furniture that seamlessly blends heritage woodworking with invisible technology. 
-            <br><br>
-            The island of calm is coming soon.
-        </p>
-
-        <!-- Signup Form -->
-        <div class="signup-form animate-up delay-3">
-            <form id="arborForm" action="https://formspree.io/f/mzzlnreo" method="POST">
-                <div class="input-group">
-                    <input type="email" id="email" name="email" placeholder="Enter your email for early access" required>
-                    <button type="submit" id="submitBtn">Join</button>
+            <!-- Hero Image Visual (Product Showcase) -->
+            <!-- Increased size and reintroduced the overlay card for depth -->
+            <div class="lg:col-span-6 relative h-[700px] w-full fade-in-up delay-200 z-0 lg:-ml-12">
+                <!-- Main Image Block: Product Image Inset with Vignette -->
+                <div class="absolute inset-0 bg-arbor-charcoal shadow-warm-2xl overflow-hidden relative rounded-sm">
+                    <!-- Use locally hosted hero image -->
+                    <img src="/images/hero-image.webp"
+                         alt="Arborholm Collection"
+                         class="w-full h-full object-cover">
+                    <!-- Subtle inset vignette for blending -->
+                    <div class="absolute inset-0 shadow-inset-vignette pointer-events-none"></div>
                 </div>
-            </form>
-            <div id="formMessage" class="form-message"></div>
+                
+                <!-- Reintroduced Overlay Card for Depth & Storytelling -->
+                <div class="absolute -bottom-12 -left-12 w-3/4 md:w-2/3 bg-[#FBF9F7] border border-arbor-stone p-8 flex flex-col justify-between shadow-warm-xl rounded-sm">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="text-xs uppercase tracking-widest text-arbor-grey-light">The Collection</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs uppercase tracking-widest text-arbor-gold">System 01</span>
+                            <div class="w-2 h-2 rounded-full bg-arbor-gold animate-pulse"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-light text-arbor-charcoal mb-2">The Holm Console</div>
+                        <div class="text-sm text-arbor-grey-medium leading-relaxed">
+                            Solid American Walnut. Responsive ambient integration. A sanctuary for your rituals, engineered for modern life.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </main>
+    <!-- Manifesto / Details Grid (Increased Spacing: py-32) -->
+    <section class="bg-white py-32 border-t border-arbor-stone relative z-10">
+        <div class="max-w-[1400px] mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+                <!-- Column 1 -->
+                <div class="fade-in-up delay-100">
+                    <div class="w-8 h-8 mb-8 border border-arbor-charcoal flex items-center justify-center">
+                        <span class="text-xs font-bold text-arbor-charcoal">01</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-arbor-charcoal">Architectural Clarity</h3>
+                    <p class="text-base text-arbor-grey-dark leading-loose">
+                        No ornamentation. Every line serves a structural purpose. Inspired by the honest construction of Nordic timber framing.
+                    </p>
+                </div>
 
-    <footer>
-        &copy; 2025 Arborholm. All rights reserved. <br> Bengaluru • Global
+                <!-- Column 2 -->
+                <div class="fade-in-up delay-200">
+                    <div class="w-8 h-8 mb-8 border border-arbor-charcoal flex items-center justify-center">
+                        <span class="text-xs font-bold text-arbor-gold">02</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-arbor-charcoal">Invisible Intelligence</h3>
+                    <p class="text-base text-arbor-grey-dark leading-loose">
+                        Sensors, charging, and connectivity are embedded deep within the solid wood core. Technology that is felt, not seen.
+                    </p>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="fade-in-up delay-300">
+                    <div class="w-8 h-8 mb-8 border border-arbor-charcoal flex items-center justify-center">
+                        <span class="text-xs font-bold text-arbor-charcoal">03</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-arbor-charcoal">Heirloom Materials</h3>
+                    <p class="text-base text-arbor-grey-dark leading-loose">
+                        Solid American Walnut and White Ash. Brushed brass hardware. Finishes that age gracefully over decades, not years.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-arbor-charcoal text-arbor-white py-24 relative z-10">
+        <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
+            <div>
+                <h2 class="text-4xl font-light mb-6 tracking-tight text-[#E3DDD6]">ARBORHOLM</h2>
+                <p class="text-arbor-grey-medium text-sm max-w-xs leading-relaxed">
+                    Designed in Bengaluru.<br>
+                    Engineered for the world.
+                </p>
+            </div>
+            
+            <div class="md:text-right">
+                <form class="inline-block relative">
+                    <input type="email" placeholder="Email for access" class="bg-transparent border-b border-arbor-grey-dark py-3 pr-12 focus:outline-none focus:border-arbor-gold transition-colors w-72 text-sm placeholder-arbor-grey-dark text-arbor-white">
+                    <button type="submit" class="absolute right-0 top-3 text-xs uppercase tracking-widest text-arbor-gold hover:text-white transition-colors">Join</button>
+                </form>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        const form = document.getElementById("arborForm");
-        const btn = document.getElementById("submitBtn");
-        const msg = document.getElementById("formMessage");
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            
-            // 1. Loading State
-            btn.innerHTML = "...";
-            btn.disabled = true;
-            const formData = new FormData(event.target);
-
-            try {
-                // 2. The AJAX Fetch Call
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                // 3. Success State
-                if (response.ok) {
-                    btn.innerHTML = "Joined";
-                    btn.style.color = "#5A6049"; // Moss Green
-                    
-                    msg.innerHTML = "Thank you. We've added you to the sanctuary list.";
-                    msg.style.color = "#5E4028";
-                    msg.classList.add('visible');
-                    
-                    form.reset();
-                } else {
-                    // 4. Error State (Formspree rejected it)
-                    const data = await response.json();
-                    if (Object.hasOwnProperty.call(data, 'errors')) {
-                        msg.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        msg.innerHTML = "Oops! There was a problem submitting your form";
-                    }
-                    msg.style.color = "red";
-                    msg.classList.add('visible');
-                    
-                    // Reset button state so they can try again
-                    btn.innerHTML = "Join";
-                    btn.disabled = false;
-                }
-            } catch (error) {
-                // 5. Network/System Error
-                console.error("Error:", error);
-                btn.innerHTML = "Retry";
-                btn.disabled = false;
-                
-                msg.innerHTML = "Oops! There was a problem submitting your form";
-                msg.style.color = "red";
-                msg.classList.add('visible');
-            }
-        }
-
-        form.addEventListener("submit", handleSubmit);
-    </script>
 </body>
 </html>
