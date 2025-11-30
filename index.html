@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arborholm | Intelligence, Rooted.</title>
+    <meta name="description" content="Arborholm blends heritage craftsmanship with invisible technology to create modern sanctuaries for your home and office. Coming Soon.">
+    
+    <!-- Fonts: Playfair Display (Heritage/Serif) and Lato (Clean/Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* The Arborholm Heritage Palette */
+            --color-base: #F8F6F7;       /* Alabaster */
+            --color-text: #5E4028;       /* Dark Espresso */
+            --color-accent: #CA8E29;     /* Brushed Brass */
+            --color-nature: #5A6049;     /* Moss Green */
+            --color-wood: #967F6C;       /* Driftwood */
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Lato', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--color-base);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Layout & Structure --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 0.9rem;
+            color: var(--color-nature);
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            color: var(--color-text);
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* --- Logo Section --- */
+        .logo-container {
+            margin-bottom: 3rem;
+            animation: fadeInDown 1.2s ease-out;
+        }
+        
+        .logo-svg {
+            height: 70px; /* Adjusted size for impact */
+            width: auto;
+        }
+
+        /* --- Email Capture Form --- */
+        .signup-form {
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            border-bottom: 2px solid var(--color-text);
+            padding-bottom: 0.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group:focus-within {
+            border-bottom-color: var(--color-accent);
+        }
+
+        input[type="email"] {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--color-text);
+            padding: 0.5rem 0;
+        }
+
+        input[type="email"]::placeholder {
+            color: var(--color-text);
+            opacity: 0.5;
+            font-style: italic;
+        }
+
+        button {
+            background: none;
+            border: none;
+            font-family: var(--font-sans);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            padding-left: 1rem;
+        }
+
+        button:hover {
+            color: var(--color-accent);
+        }
+        
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            min-height: 1.5em;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .form-message.visible {
+            opacity: 1;
+        }
+
+        /* --- Visual Elements --- */
+        .grain-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .line-accent {
+            width: 60px;
+            height: 2px;
+            background-color: var(--color-accent);
+            margin: 0 auto 2rem;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--color-wood);
+            font-family: var(--font-sans);
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up {
+            animation: fadeInUp 1.2s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .logo-svg { height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grain-texture"></div>
+
+    <main class="container">
+        
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <!-- Inline SVG: Optimized for the "Character" Version (Serif + Brass Roof) -->
+            <svg class="logo-svg" viewBox="0 0 450 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Icon: The Brass Roof (Simple Geometric Shelter) -->
+                <path d="M55 20 L95 60 L80 60 L55 35 L30 60 L15 60 L55 20Z" fill="#CA8E29"/>
+                
+                <!-- Text: ARBORHOLM using Playfair Display (Serif) -->
+                <text x="120" y="60" font-family="'Playfair Display', serif" font-weight="500" font-size="48" letter-spacing="0.08em" fill="#5E4028">ARBORHOLM</text>
+            </svg>
+        </div>
+
+        <div class="line-accent animate-up delay-1"></div>
+
+        <h2 class="animate-up delay-1">Intelligence, Rooted.</h2>
+
+        <h1 class="animate-up delay-2">
+            A sanctuary for your<br>modern life.
+        </h1>
+
+        <p class="animate-up delay-2">
+            We are crafting a new collection of intelligent furniture that seamlessly blends heritage woodworking with invisible technology. 
+            <br><br>
+            The island of calm is coming soon.
+        </p>
+
+        <!-- Signup Form -->
+        <div class="signup-form animate-up delay-3">
+            <form id="arborForm" action="https://formspree.io/f/mzzlnreo" method="POST">
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="Enter your email for early access" required>
+                    <button type="submit" id="submitBtn">Join</button>
+                </div>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        &copy; 2025 Arborholm. All rights reserved. <br> Bengaluru • Global
+    </footer>
+
+    <script>
+        const form = document.getElementById("arborForm");
+        const btn = document.getElementById("submitBtn");
+        const msg = document.getElementById("formMessage");
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            
+            // 1. Loading State
+            btn.innerHTML = "...";
+            btn.disabled = true;
+            const formData = new FormData(event.target);
+
+            try {
+                // 2. The AJAX Fetch Call
+                const response = await fetch(event.target.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                // 3. Success State
+                if (response.ok) {
+                    btn.innerHTML = "Joined";
+                    btn.style.color = "#5A6049"; // Moss Green
+                    
+                    msg.innerHTML = "Thank you. We've added you to the sanctuary list.";
+                    msg.style.color = "#5E4028";
+                    msg.classList.add('visible');
+                    
+                    form.reset();
+                } else {
+                    // 4. Error State (Formspree rejected it)
+                    const data = await response.json();
+                    if (Object.hasOwnProperty.call(data, 'errors')) {
+                        msg.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                    } else {
+                        msg.innerHTML = "Oops! There was a problem submitting your form";
+                    }
+                    msg.style.color = "red";
+                    msg.classList.add('visible');
+                    
+                    // Reset button state so they can try again
+                    btn.innerHTML = "Join";
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                // 5. Network/System Error
+                console.error("Error:", error);
+                btn.innerHTML = "Retry";
+                btn.disabled = false;
+                
+                msg.innerHTML = "Oops! There was a problem submitting your form";
+                msg.style.color = "red";
+                msg.classList.add('visible');
+            }
+        }
+
+        form.addEventListener("submit", handleSubmit);
+    </script>
+</body>
+</html>
